@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  user:
+    build: ./
+    ports:
+      - 8080:8080
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/userdb
+      DB_USERNAME: postgres
+      DB_PASSWORD: example
+    depends_on:
+      - db
+    command: ./mvnw spring-boot:run
+    networks:
+      - app-network
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: userdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+    volumes:
+      - userdb_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  userdb_data:
