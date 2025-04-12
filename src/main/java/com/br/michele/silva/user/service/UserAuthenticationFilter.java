@@ -1,6 +1,6 @@
 package com.br.michele.silva.user.service;
 
-import com.br.michele.silva.user.config.SecurityConfiguration;
+import com.br.michele.silva.user.config.SecurityConfig;
 import com.br.michele.silva.user.entities.User;
 import com.br.michele.silva.user.repository.UserRepository;
 import jakarta.servlet.FilterChain;
@@ -60,7 +60,7 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
     // Verifica se o endpoint requer autenticação antes de processar a requisição
     private boolean checkIfEndpointIsNotPublic(HttpServletRequest request) {
         String requestURI = request.getRequestURI();
-        return !Arrays.asList(SecurityConfiguration.ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED).contains(requestURI);
+        return !Arrays.asList(SecurityConfig.ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED).contains(requestURI);
     }
 
 

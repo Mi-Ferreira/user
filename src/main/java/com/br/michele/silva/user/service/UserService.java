@@ -1,6 +1,6 @@
 package com.br.michele.silva.user.service;
 
-import com.br.michele.silva.user.config.SecurityConfiguration;
+import com.br.michele.silva.user.config.SecurityConfig;
 import com.br.michele.silva.user.controller.dtos.CreateUserDto;
 import com.br.michele.silva.user.controller.dtos.LoginUserDto;
 import com.br.michele.silva.user.controller.dtos.RecoveryJwtTokenDto;
@@ -26,7 +26,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    private final SecurityConfiguration securityConfiguration;
+    private final SecurityConfig securityConfiguration;
 
     // Método responsável por autenticar um usuário e retornar um token JWT
     public RecoveryJwtTokenDto authenticateUser(LoginUserDto loginUserDto) {
