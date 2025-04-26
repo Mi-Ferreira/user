@@ -24,23 +24,24 @@ public class SecurityConfig {
 
     private final UserAuthenticationFilter userAuthenticationFilter;
 
-    public static final String [] ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED = {
+    public static final String[] ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED = {
             "/users/login", // Url que usaremos para fazer login
-            "/users" // Url que usaremos para criar um usuário
+            "/users", // Url que usaremos para criar um usuário
+            "/users/me" //Url que recupera informações do usuário autenticado
     };
 
     // Endpoints que requerem autenticação para serem acessados
-    public static final String [] ENDPOINTS_WITH_AUTHENTICATION_REQUIRED = {
+    public static final String[] ENDPOINTS_WITH_AUTHENTICATION_REQUIRED = {
             "/users/test"
     };
 
     // Endpoints que só podem ser acessador por usuários com permissão de cliente
-    public static final String [] ENDPOINTS_CUSTOMER = {
+    public static final String[] ENDPOINTS_CUSTOMER = {
             "/users/test/customer"
     };
 
     // Endpoints que só podem ser acessador por usuários com permissão de administrador
-    public static final String [] ENDPOINTS_ADMIN = {
+    public static final String[] ENDPOINTS_ADMIN = {
             "/users/test/administrator"
     };
 

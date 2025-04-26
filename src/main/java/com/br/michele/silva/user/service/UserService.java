@@ -66,7 +66,7 @@ public class UserService {
         return RecoveryUserDto.builder()
                 .id(user.orElseThrow().getId())
                 .email(user.orElseThrow().getEmail())
-                //.roles(user.orElseThrow().getRoles())
+                .roles(user.orElseThrow().getRoles())
                 .build();
 
     }

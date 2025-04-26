@@ -27,7 +27,8 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    public RecoveryUserDto getCurrentUser(@RequestHeader("Authorization") String token) {
+    public RecoveryUserDto getCurrentUser(@RequestHeader("Authorization") String authorizationHeader) {
+        String token = authorizationHeader.replace("Bearer ", ""); // Remove o "Bearer " do começo;
         return userService.getUserByToken(token); // Recupera o usuário do banco de dados
     }
 
